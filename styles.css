@@ -1,0 +1,161 @@
+.tipo-fire { color: #e25822; }
+.tipo-water { color: #0077b6; }
+.tipo-grass { color: #2a9d8f; }
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f3f3f3;
+    color: #333;
+    padding: 20px;
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    color: #e63946;
+    font-size: 2.5rem;
+  }
+  
+  /* Botones de tipo */
+  .type-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .type-btn {
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    padding: 10px;
+    width: 90px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .type-btn:hover {
+    transform: scale(1.05);
+    border-color: #e63946;
+  }
+  
+  .type-btn img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+  }
+  
+  /* Buscador */
+  .search-section {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  
+  #searchInput {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 250px;
+    font-size: 1rem;
+  }
+  
+  #searchBtn {
+    padding: 10px 20px;
+    background-color: #e63946;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  #searchBtn:hover {
+    background-color: #d62828;
+  }
+  
+  /* Lista de Pokémon */
+  .pokemon-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    justify-items: center;
+  }
+  
+  /* Tarjeta de Pokémon */
+  .pokemon-card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 200px;
+    transition: transform 0.2s ease;
+  }
+  
+  .pokemon-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .pokemon-card img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .pokemon-card h3 {
+    font-size: 1.1rem;
+    color: #222;
+  }
+  
+  .pokemon-card p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+  }
+  
+  .pagination-controls button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #457b9d;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .pagination-controls button:hover {
+    background-color: #1d3557;
+  }
+
+  .pokemon-card {
+    animation: fadeIn 0.4s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  
+  
