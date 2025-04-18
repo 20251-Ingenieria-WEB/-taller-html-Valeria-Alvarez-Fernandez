@@ -22,12 +22,27 @@ async function loadTypes() {
   });
   typeButtons.appendChild(allBtn);
 
-  data.results.forEach(type => {
+  const filteredTypes = data.results.filter(type =>
+    type.name !== 'stellar' && type.name !== 'unknown'
+  );
+
+  let buttonCount = 0;
+  filteredTypes.forEach((type, index) => {
     const btn = document.createElement('div');
     btn.className = 'type-btn';
     btn.innerHTML = `<img src="https://img.icons8.com/color/48/${type.name}.png"/><span>${type.name}</span>`;
     btn.addEventListener('click', () => loadByType(type.name));
-    typeButtons.appendChild(btn);
+
+    if (index < 5) {
+      typeButtons.appendChild(btn);
+    } else if (index < 10) {
+      typeButtons.appendChild(btn);
+    } else if (index < 15) {
+      typeButtons.appendChild(btn);
+    } else if (index < 18) {
+      typeButtons.appendChild(btn);
+    }
+    buttonCount++;
   });
 }
 
@@ -41,25 +56,29 @@ searchBtn.addEventListener('click', async () => {
     const res = await fetch(`${API_BASE}/pokemon/${term}`);
     if (!res.ok) throw new Error();
     const poke = await res.json();
+
     pokemonList.innerHTML = '';
+    pokemonList.classList.add('single-pokemon'); // 👉 Añadimos clase para centrar
     renderPokemonCard(poke);
     document.getElementById('pagination-controls').innerHTML = '';
   } catch {
     pokemonList.innerHTML = '<p>Pokémon no encontrado.</p>';
+    pokemonList.classList.remove('single-pokemon'); // Asegura que no quede aplicada
   }
 });
 
 // Buscar por nombre o número cuando se presiona Enter
 searchInput.addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-      searchBtn.click(); // Esto simula un clic en el botón de búsqueda
-    }
-  });
-  
+  if (event.key === 'Enter') {
+    searchBtn.click();
+  }
+});
 
 // Mostrar Pokémon por tipo
 async function loadByType(type) {
   pokemonList.innerHTML = '<p>Cargando...</p>';
+  pokemonList.classList.remove('single-pokemon'); // 👉 Removemos clase especial
+
   try {
     const res = await fetch(`${API_BASE}/type/${type}`);
     const data = await res.json();
@@ -79,6 +98,7 @@ async function loadByType(type) {
 // Mostrar todos con paginación
 async function loadAllPokemon() {
   pokemonList.innerHTML = '<p>Cargando Pokémon...</p>';
+  pokemonList.classList.remove('single-pokemon'); // 👉 Removemos clase especial
 
   try {
     const res = await fetch(`${API_BASE}/pokemon?limit=150`);
@@ -94,6 +114,7 @@ async function loadAllPokemon() {
 
 async function renderPokemonPage(page) {
   pokemonList.innerHTML = '<p>Cargando página...</p>';
+  pokemonList.classList.remove('single-pokemon'); // 👉 Removemos clase especial
 
   const start = (page - 1) * itemsPerPage;
   const end = start + itemsPerPage;
@@ -133,6 +154,7 @@ function renderPaginationControls() {
 
   container.appendChild(prevBtn);
   container.appendChild(nextBtn);
+  pokemonList.parentNode.insertBefore(container, pokemonList);
 }
 
 // Mostrar tarjeta
@@ -151,6 +173,8 @@ function renderPokemonCard(poke) {
 
 // Cargar app
 loadTypes();
+
+
 
 
   
