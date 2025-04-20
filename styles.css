@@ -36,8 +36,8 @@ h1 {
 /* Estilo para botones */
 .type-btn {
   width: 100%;
-  max-width: 120px;
-  height: 120px;
+  max-width: 130px;
+  height: 135px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,7 +45,7 @@ h1 {
   background-color: #f2f2f2;
   border-radius: 16px;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.5s;
   font-size: 1rem;
   text-align: center;
   border: 2px solid #ccc;
@@ -53,7 +53,7 @@ h1 {
 }
 
 .type-btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.25);
   border-color: #e63946;
 }
 
@@ -194,12 +194,13 @@ h1 {
   margin-left: 250px;
 }
 
-/*Orden de los botones en orden especifico*/
+/*Orden de los botones especifico*/
 
 /* Diseño asimétrico de botones */
 #typeButtons .type-btn:nth-child(1) {
-  grid-column: 3;
+  grid-column: 3/ span 2; /*Este boton ocupa dos columnas*/
   grid-row: 1;
+  justify-self: center;
 }
 
 /* Fila 2 */
@@ -208,25 +209,24 @@ h1 {
 #typeButtons .type-btn:nth-child(4) { grid-column: 3; grid-row: 2; }
 #typeButtons .type-btn:nth-child(5) { grid-column: 4; grid-row: 2; }
 #typeButtons .type-btn:nth-child(6) { grid-column: 5; grid-row: 2; }
+#typeButtons .type-btn:nth-child(7) { grid-column: 6; grid-row: 2; }
 
 /* Fila 3 */
-#typeButtons .type-btn:nth-child(7) { grid-column: 1; grid-row: 3; }
-#typeButtons .type-btn:nth-child(8) { grid-column: 2; grid-row: 3; }
-#typeButtons .type-btn:nth-child(9) { grid-column: 3; grid-row: 3; }
-#typeButtons .type-btn:nth-child(10) { grid-column: 4; grid-row: 3; }
-#typeButtons .type-btn:nth-child(11) { grid-column: 5; grid-row: 3; }
+#typeButtons .type-btn:nth-child(8) { grid-column: 1; grid-row: 3; }
+#typeButtons .type-btn:nth-child(9) { grid-column: 2; grid-row: 3; }
+#typeButtons .type-btn:nth-child(10) { grid-column: 3; grid-row: 3; }
+#typeButtons .type-btn:nth-child(11) { grid-column: 4; grid-row: 3; }
+#typeButtons .type-btn:nth-child(12) { grid-column: 5; grid-row: 3; }
+#typeButtons .type-btn:nth-child(13) { grid-column: 6; grid-row: 3; }
 
 /* Fila 4 */
-#typeButtons .type-btn:nth-child(12) { grid-column: 1; grid-row: 4; }
-#typeButtons .type-btn:nth-child(13) { grid-column: 2; grid-row: 4; }
-#typeButtons .type-btn:nth-child(14) { grid-column: 3; grid-row: 4; }
-#typeButtons .type-btn:nth-child(15) { grid-column: 4; grid-row: 4; }
-#typeButtons .type-btn:nth-child(16) { grid-column: 5; grid-row: 4; }
+#typeButtons .type-btn:nth-child(14) { grid-column: 1; grid-row: 4; }
+#typeButtons .type-btn:nth-child(15) { grid-column: 2; grid-row: 4; }
+#typeButtons .type-btn:nth-child(16) { grid-column: 3; grid-row: 4; }
+#typeButtons .type-btn:nth-child(17) { grid-column: 4; grid-row: 4; }
+#typeButtons .type-btn:nth-child(18) { grid-column: 5; grid-row: 4; }
+#typeButtons .type-btn:nth-child(19) { grid-column: 6; grid-row: 4; }
 
-/* Fila 5 */
-#typeButtons .type-btn:nth-child(17) { grid-column: 2; grid-row: 5; }
-#typeButtons .type-btn:nth-child(18) { grid-column: 3; grid-row: 5; }
-#typeButtons .type-btn:nth-child(19) { grid-column: 4; grid-row: 5; }
 
 /* Apartado de detalles de los pokemones */
 
