@@ -1,211 +1,188 @@
-.tipo-fire { color: #e25822; }
-.tipo-water { color: #0077b6; }
-.tipo-grass { color: #2a9d8f; }
-
-
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f3f3f3;
-    color: #333;
-    padding: 20px;
-  }
-  
-  header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  h1 {
-    color: #e63946;
-    font-size: 2.5rem;
-  }
-  
-  /* Botones de tipo */
-  .type-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-  
-  .type-btn {
-    background-color: white;
-    border: 2px solid #ccc;
-    border-radius: 12px;
-    padding: 10px;
-    width: 90px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-  }
-  
-  .type-btn:hover {
-    transform: scale(1.05);
-    border-color: #e63946;
-  }
-  
-  .type-btn img {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 5px;
-  }
-  
-  /* Buscador */
-  .search-section {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-    margin-bottom: 15px;
-  }
-  
-  #searchInput {
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    width: 250px;
-    font-size: 1rem;
-  }
-  
-  #searchBtn {
-    padding: 10px 20px;
-    background-color: #e63946;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s ease;
-  }
-  
-  #searchBtn:hover {
-    background-color: #d62828;
-  }
-  
-  /* Lista de Pokémon */
-  #pokemonList {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 200px);
-    gap: 16px;
-    padding: 20px;
-    position: relative;
-  }
-  
-  
-  /* Tarjeta de Pokémon */
-  .pokemon-card {
-    background-color: white;
-    border-radius: 16px;
-    padding: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    text-align: center;
-    width: 100%;
-    max-width: 200px;
-    transition: transform 0.2s ease;
-  }
-  
-  .pokemon-card:hover {
-    transform: scale(1.03);
-  }
-  
-  .pokemon-card img {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 10px;
-  }
-  
-  .pokemon-card h3 {
-    font-size: 1.1rem;
-    color: #222;
-  }
-  
-  .pokemon-card p {
-    font-size: 0.95rem;
-    color: #555;
-  }
-
-  .pagination-controls {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    gap: 10px;
-  }
-  
-  .pagination-controls button {
-    padding: 8px 16px;
-    border: none;
-    background-color: #457b9d;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .pagination-controls button:hover {
-    background-color: #1d3557;
-  }
-
-  .pokemon-card {
-    animation: fadeIn 0.4s ease;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  #typeButtons {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 80px);
-    gap: 10px;
-    justify-items: center;
-    align-items: center;
-    margin: 20px auto;
-    margin-bottom: 20px !important;
-    max-width: 600px;
-    overflow: auto;
-  }
-  
-  .type-btn {
-    width: 100%;
-    max-width: 100px;
-    height: 70px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #f2f2f2;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-  
-  .type-btn img {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .type-btn:hover {
-    transform: scale(1.05);
-  }
-
-  /* Estilo normal para lista de Pokémon en cuadrícula */
-#pokemonList {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-  padding: 20px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Si solo se muestra un Pokémon (después de una búsqueda) */
+body {
+  margin: 0;
+  font-family: 'VT323', monospace;
+  background-image: url(https://img.freepik.com/vector-gratis/fondo-estilo-comico-diseno-plano_52683-53321.jpg?semt=ais_hybrid&w=740); /* Puede ser local o URL */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #cb0202;
+  font-size: 4.5rem;
+}
+
+/* Botones de tipo */
+.type-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+/* Estilo para botones */
+.type-btn {
+  width: 100%;
+  max-width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f2f2;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  font-size: 1rem;
+  text-align: center;
+  border: 2px solid #ccc;
+  padding: 10px;
+}
+
+.type-btn:hover {
+  transform: scale(1.05);
+  border-color: #e63946;
+}
+
+.type-btn img {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 8px;
+}
+
+/* Buscador */
+.search-section {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 20 px;
+}
+
+#searchInput {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 250px;
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+}
+
+#searchBtn {
+  padding: 10px 20px;
+  background-color: #e63946;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#searchBtn:hover {
+  background-color: #d62828;
+}
+
+/* Lista de Pokémon */
+#pokemonList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+
+/* Tarjeta de Pokémon */
+.pokemon-card {
+  background-color: white;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 200px;
+  transition: transform 0.2s ease;
+  animation: fadeIn 0.4s ease;
+}
+
+.pokemon-card:hover {
+  transform: scale(1.03);
+}
+
+.pokemon-card img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.pokemon-card h3 {
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.pokemon-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.pagination-controls button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #457b9d;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pagination-controls button:hover {
+  background-color: #1d3557;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#typeButtons {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(80px, 1fr));
+  gap: 6px;
+  justify-items: center;
+  align-items: center;
+  margin: 20px auto;
+  margin-bottom: 20px !important;
+  max-width: 500px; 
+  width: 100%;
+}
+
+/* Estilo para lista de Pokémon en búsqueda individual */
 #pokemonList.single-pokemon {
   display: flex;
   justify-content: center;
@@ -214,6 +191,7 @@
   margin-top: 0;
 }
 
+/* Diseño asimétrico de botones */
 #typeButtons .type-btn:nth-child(1) {
   grid-column: 3;
   grid-row: 1;
@@ -244,6 +222,45 @@
 #typeButtons .type-btn:nth-child(17) { grid-column: 2; grid-row: 5; }
 #typeButtons .type-btn:nth-child(18) { grid-column: 3; grid-row: 5; }
 #typeButtons .type-btn:nth-child(19) { grid-column: 4; grid-row: 5; }
+
+#pokemonDetail {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+  width: 450px;
+  z-index: 999;
+  text-align: center;
+}
+
+#pokemonDetail.active {
+  display: block;
+}
+
+#backBtn {
+  background-color: #e63946;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 16px;
+    font-family: 'VT323', monospace;;
+}
+
+#detailContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
 
 
 
