@@ -8,6 +8,7 @@ const backBtn = document.getElementById('backBtn');
 
 let previousScrollPosition = 0;
 let currentPage = 1;
+let currentType = '';
 const itemsPerPage = 15;
 let allPokemonList = [];
 
@@ -70,6 +71,9 @@ async function loadByType(type) {
     console.error(error);
     pokemonList.innerHTML = '<p>Error al cargar Pokémon por tipo.</p>';
   }
+  
+  pokemonList.scrollIntoView({ behavior: 'auto', block: 'start' });
+
 }
 
 // Función para los controles de paginación en cada tipo
@@ -136,6 +140,9 @@ async function renderPokemonPage(page) {
   details.forEach(poke => renderPokemonCard(poke));
 
   renderPaginationControls();
+
+  pokemonList.scrollIntoView({ behavior: 'auto', block: 'start' });
+
 }
 
 function renderPaginationControls() {
@@ -225,9 +232,6 @@ document.querySelectorAll('.type-btn').forEach(btn => {
   }
 });
 
-
-// Iniciar mostrando todos
-loadAllPokemon();
 
 
 

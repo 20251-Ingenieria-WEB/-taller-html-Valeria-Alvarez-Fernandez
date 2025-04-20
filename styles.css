@@ -186,9 +186,11 @@ h1 {
 #pokemonList.single-pokemon {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: flex-start;
   padding: 20px;
   margin-top: 0;
+  margin-left: 250px;
 }
 
 /* Diseño asimétrico de botones */
