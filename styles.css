@@ -214,6 +214,37 @@
   margin-top: 0;
 }
 
+#typeButtons .type-btn:nth-child(1) {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+/* Fila 2 */
+#typeButtons .type-btn:nth-child(2) { grid-column: 1; grid-row: 2; }
+#typeButtons .type-btn:nth-child(3) { grid-column: 2; grid-row: 2; }
+#typeButtons .type-btn:nth-child(4) { grid-column: 3; grid-row: 2; }
+#typeButtons .type-btn:nth-child(5) { grid-column: 4; grid-row: 2; }
+#typeButtons .type-btn:nth-child(6) { grid-column: 5; grid-row: 2; }
+
+/* Fila 3 */
+#typeButtons .type-btn:nth-child(7) { grid-column: 1; grid-row: 3; }
+#typeButtons .type-btn:nth-child(8) { grid-column: 2; grid-row: 3; }
+#typeButtons .type-btn:nth-child(9) { grid-column: 3; grid-row: 3; }
+#typeButtons .type-btn:nth-child(10) { grid-column: 4; grid-row: 3; }
+#typeButtons .type-btn:nth-child(11) { grid-column: 5; grid-row: 3; }
+
+/* Fila 4 */
+#typeButtons .type-btn:nth-child(12) { grid-column: 1; grid-row: 4; }
+#typeButtons .type-btn:nth-child(13) { grid-column: 2; grid-row: 4; }
+#typeButtons .type-btn:nth-child(14) { grid-column: 3; grid-row: 4; }
+#typeButtons .type-btn:nth-child(15) { grid-column: 4; grid-row: 4; }
+#typeButtons .type-btn:nth-child(16) { grid-column: 5; grid-row: 4; }
+
+/* Fila 5 */
+#typeButtons .type-btn:nth-child(17) { grid-column: 2; grid-row: 5; }
+#typeButtons .type-btn:nth-child(18) { grid-column: 3; grid-row: 5; }
+#typeButtons .type-btn:nth-child(19) { grid-column: 4; grid-row: 5; }
+
 
 
   

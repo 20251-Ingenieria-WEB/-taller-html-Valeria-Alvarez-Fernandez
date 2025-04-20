@@ -11,24 +11,102 @@
     <h1>Mini Pokédex</h1>
   </header>
 
+  <!-- Botones de tipo Pokémon -->
   <section class="type-buttons-container" id="typeButtons">
-    <!-- Botones de tipos se generan con JS -->
+    <div class="type-btn" id="allBtn">
+      <img src="https://dinopixel.com/preload/1022/pokeball1665483271.png" alt="Todos">
+      <span>Todos</span>
+    </div>
+    <div class="type-btn" data-type="normal">
+      <img src="https://64.media.tumblr.com/b588ef01d7075388169b64be86637b07/tumblr_mhtwfdBYer1s1kaw2o1_500.gif" alt="Normal">
+      <span>Normal</span>
+    </div>
+    <div class="type-btn" data-type="fire">
+      <img src="https://art.ngfiles.com/images/1099000/1099333_gatekid3_charmander-reanimated-crystal-sprite.gif?f1575218149" alt="Fuego">
+      <span>Fuego</span>
+    </div>
+    <div class="type-btn" data-type="water">
+      <img src="https://i.gifer.com/origin/d8/d83e9951f28fc811c1166b16dcaec930_w200.gif" alt="Agua">
+      <span>Agua</span>
+    </div>
+    <div class="type-btn" data-type="grass">
+      <img src="https://i.pinimg.com/originals/bf/95/c5/bf95c53a70819967d79c6ce2ff6883bc.gif" alt="Planta">
+      <span>Planta</span>
+    </div>
+    <div class="type-btn" data-type="electric">
+      <img src="https://i.pinimg.com/originals/e9/38/d1/e938d18fc07a3ffd16b4864ef2f1308f.gif" alt="Eléctrico">
+      <span>Eléctrico</span>
+    </div>
+    <div class="type-btn" data-type="ice">
+      <img src="https://static.wikia.nocookie.net/rijon/images/f/f7/221.gif/revision/latest/thumbnail/width/360/height/360?cb=20231210213434" alt="Hielo">
+      <span>Hielo</span>
+    </div>
+    <div class="type-btn" data-type="fighting">
+      <img src="https://media.invisioncic.com/z328913/monthly_2018_04/Combusken_50810.gif.e66b3f9d971298a41279f81ae7348e82.gif" alt="Lucha">
+      <span>Lucha</span>
+    </div>
+    <div class="type-btn" data-type="poison">
+      <img src="https://cdn.meadd.com/photos/full/73978390.gif" alt="Veneno">
+      <span>Veneno</span>
+    </div>
+    <div class="type-btn" data-type="ground">
+      <img src="https://i.pinimg.com/originals/32/a6/88/32a6883c4d90ce18f01fb552f8418965.gif" alt="Tierra">
+      <span>Tierra</span>
+    </div>
+    <div class="type-btn" data-type="flying">
+      <img src="https://i.pinimg.com/originals/09/c1/2e/09c12e9adcbcbedf4bd351afb40faa8c.gif" alt="Volador">
+      <span>Volador</span>
+    </div>
+    <div class="type-btn" data-type="psychic">
+      <img src="https://64.media.tumblr.com/8dc3e76ff8e4b5429da5c337c2dfc103/6ecc4a1f624b380a-3c/s540x810/24a494732381f0a676c1cc98e575f8ebc53d8930.gif" alt="Psíquico">
+      <span>Psíquico</span>
+    </div>
+    <div class="type-btn" data-type="bug">
+      <img src="https://static.wikia.nocookie.net/pokemeow-community/images/9/9b/Common_Caterpie.gif/revision/latest/thumbnail/width/360/height/450?cb=20201213152608" alt="Bicho">
+      <span>Bicho</span>
+    </div>
+    <div class="type-btn" data-type="rock">
+      <img src="https://static.wikia.nocookie.net/rijon/images/9/93/74.gif/revision/latest/thumbnail/width/360/height/360?cb=20231209091305" alt="Roca">
+      <span>Roca</span>
+    </div>
+    <div class="type-btn" data-type="ghost">
+      <img src="https://i.pinimg.com/originals/4f/d0/c0/4fd0c049c173c9beb5a0101a84deb6f9.gif" alt="Fantasma">
+      <span>Fantasma</span>
+    </div>
+    <div class="type-btn" data-type="dragon">
+      <img src="https://i.gifer.com/origin/d6/d619a229aec7d154d474ace99e020d92_w200.gif" alt="Dragón">
+      <span>Dragón</span>
+    </div>
+    <div class="type-btn" data-type="dark">
+      <img src="https://media0.giphy.com/media/HPo8fZLSQwVsqOP3SO/200w.gif?cid=6c09b9529dfic8057bygk6jquf9eq6c774ep6b57z4pucmr7&ep=v1_stickers_search&rid=200w.gif&ct=s" alt="Siniestro">
+      <span>Siniestro</span>
+    </div>
+    <div class="type-btn" data-type="steel">
+      <img src="https://static.wikia.nocookie.net/rijon/images/1/10/304-Aron.gif/revision/latest/thumbnail/width/360/height/360?cb=20231212181738" alt="Acero">
+      <span>Acero</span>
+    </div>
+    <div class="type-btn" data-type="fairy">
+      <img src="https://i.imgur.com/Ndkh7vv.gif" alt="Hada">
+      <span>Hada</span>
+    </div>
   </section>
 
+  <!-- Barra de búsqueda -->
   <section class="search-section">
     <input type="text" id="searchInput" placeholder="Nombre o número de Pokémon">
     <button id="searchBtn">Buscar</button>
   </section>
 
+  <!-- Lista de Pokémon -->
   <main class="pokemon-list" id="pokemonList">
     <!-- Pokemones se muestran aquí -->
   </main>
 
-  <div id="pagination-controls" class="pagination-controls">
-    <!-- Controles de paginación -->
-  </div>
+  <!-- Controles de paginación -->
+  <div id="pagination-controls" class="pagination-controls"></div>
 
   <script src="app.js"></script>
 </body>
 </html>
+
 

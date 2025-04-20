@@ -1,5 +1,4 @@
 const API_BASE = 'https://pokeapi.co/api/v2';
-const typeButtons = document.getElementById('typeButtons');
 const pokemonList = document.getElementById('pokemonList');
 const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
@@ -8,45 +7,7 @@ let currentPage = 1;
 const itemsPerPage = 20;
 let allPokemonList = [];
 
-// Generar botones de tipo y 'Todos'
-async function loadTypes() {
-  const res = await fetch(`${API_BASE}/type`);
-  const data = await res.json();
-
-  const allBtn = document.createElement('div');
-  allBtn.className = 'type-btn';
-  allBtn.innerHTML = `<img src="https://img.icons8.com/color/48/pokeball-2.png"/><span>Todos</span>`;
-  allBtn.addEventListener('click', () => {
-    currentPage = 1;
-    loadAllPokemon();
-  });
-  typeButtons.appendChild(allBtn);
-
-  const filteredTypes = data.results.filter(type =>
-    type.name !== 'stellar' && type.name !== 'unknown'
-  );
-
-  let buttonCount = 0;
-  filteredTypes.forEach((type, index) => {
-    const btn = document.createElement('div');
-    btn.className = 'type-btn';
-    btn.innerHTML = `<img src="https://img.icons8.com/color/48/${type.name}.png"/><span>${type.name}</span>`;
-    btn.addEventListener('click', () => loadByType(type.name));
-
-    if (index < 5) {
-      typeButtons.appendChild(btn);
-    } else if (index < 10) {
-      typeButtons.appendChild(btn);
-    } else if (index < 15) {
-      typeButtons.appendChild(btn);
-    } else if (index < 18) {
-      typeButtons.appendChild(btn);
-    }
-    buttonCount++;
-  });
-}
-
-// Buscar por nombre o número
+// Escucha del botón de búsqueda
 searchBtn.addEventListener('click', async () => {
   const term = searchInput.value.trim().toLowerCase();
   if (!term) return;
@@ -58,16 +19,16 @@ searchBtn.addEventListener('click', async () => {
     const poke = await res.json();
 
     pokemonList.innerHTML = '';
-    pokemonList.classList.add('single-pokemon'); // 👉 Añadimos clase para centrar
+    pokemonList.classList.add('single-pokemon');
     renderPokemonCard(poke);
     document.getElementById('pagination-controls').innerHTML = '';
   } catch {
     pokemonList.innerHTML = '<p>Pokémon no encontrado.</p>';
-    pokemonList.classList.remove('single-pokemon'); // Asegura que no quede aplicada
+    pokemonList.classList.remove('single-pokemon');
   }
 });
 
-// Buscar por nombre o número cuando se presiona Enter
+// Buscar con Enter
 searchInput.addEventListener('keydown', function(event) {
   if (event.key === 'Enter') {
     searchBtn.click();
@@ -77,7 +38,7 @@ searchInput.addEventListener('keydown', function(event) {
 // Mostrar Pokémon por tipo
 async function loadByType(type) {
   pokemonList.innerHTML = '<p>Cargando...</p>';
-  pokemonList.classList.remove('single-pokemon'); // 👉 Removemos clase especial
+  pokemonList.classList.remove('single-pokemon');
 
   try {
     const res = await fetch(`${API_BASE}/type/${type}`);
@@ -95,10 +56,10 @@ async function loadByType(type) {
   }
 }
 
-// Mostrar todos con paginación
+// Mostrar todos los Pokémon con paginación
 async function loadAllPokemon() {
   pokemonList.innerHTML = '<p>Cargando Pokémon...</p>';
-  pokemonList.classList.remove('single-pokemon'); // 👉 Removemos clase especial
+  pokemonList.classList.remove('single-pokemon');
 
   try {
     const res = await fetch(`${API_BASE}/pokemon?limit=150`);
@@ -114,7 +75,7 @@ async function loadAllPokemon() {
 
 async function renderPokemonPage(page) {
   pokemonList.innerHTML = '<p>Cargando página...</p>';
-  pokemonList.classList.remove('single-pokemon'); // 👉 Removemos clase especial
+  pokemonList.classList.remove('single-pokemon');
 
   const start = (page - 1) * itemsPerPage;
   const end = start + itemsPerPage;
@@ -157,7 +118,7 @@ function renderPaginationControls() {
   pokemonList.parentNode.insertBefore(container, pokemonList);
 }
 
-// Mostrar tarjeta
+// Renderizar una tarjeta de Pokémon
 function renderPokemonCard(poke) {
   const div = document.createElement('div');
   div.className = 'pokemon-card';
@@ -171,9 +132,21 @@ function renderPokemonCard(poke) {
   pokemonList.appendChild(div);
 }
 
-// Cargar app
-loadTypes();
+// ✅ Agregamos eventos a los botones manuales
+document.querySelectorAll('.type-btn').forEach(btn => {
+  const type = btn.dataset.type;
+  if (type) {
+    btn.addEventListener('click', () => loadByType(type));
+  } else if (btn.id === 'allBtn') {
+    btn.addEventListener('click', () => {
+      currentPage = 1;
+      loadAllPokemon();
+    });
+  }
+});
 
+// Iniciar mostrando todos
+loadAllPokemon();
 
 
 
