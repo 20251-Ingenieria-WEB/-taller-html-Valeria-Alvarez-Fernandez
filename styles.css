@@ -24,7 +24,7 @@ h1 {
   font-size: 4.5rem;
 }
 
-/* Botones de tipo */
+/* Botones de clase */
 .type-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -170,6 +170,7 @@ h1 {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/*Botones de inicio*/
 #typeButtons {
   display: grid;
   grid-template-columns: repeat(5, minmax(80px, 1fr));
@@ -192,6 +193,8 @@ h1 {
   margin-top: 0;
   margin-left: 250px;
 }
+
+/*Orden de los botones en orden especifico*/
 
 /* Diseño asimétrico de botones */
 #typeButtons .type-btn:nth-child(1) {
@@ -224,6 +227,8 @@ h1 {
 #typeButtons .type-btn:nth-child(17) { grid-column: 2; grid-row: 5; }
 #typeButtons .type-btn:nth-child(18) { grid-column: 3; grid-row: 5; }
 #typeButtons .type-btn:nth-child(19) { grid-column: 4; grid-row: 5; }
+
+/* Apartado de detalles de los pokemones */
 
 #pokemonDetail {
   display: none;

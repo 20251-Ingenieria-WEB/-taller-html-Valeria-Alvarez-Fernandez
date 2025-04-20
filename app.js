@@ -40,9 +40,9 @@ searchInput.addEventListener('keydown', function(event) {
   }
 });
 
-let currentPageType = 1;  // Agregar página para cada tipo de Pokémon
+let currentPageType = 1;  // Agregar página para cada clase de Pokémon
 
-// Mostrar Pokémon por tipo con paginación
+// Mostrar Pokémon por clase con paginación
 async function loadByType(type) {
   pokemonList.innerHTML = '<p>Cargando...</p>';
   pokemonList.classList.remove('single-pokemon');
@@ -51,7 +51,7 @@ async function loadByType(type) {
     const res = await fetch(`${API_BASE}/type/${type}`);
     const data = await res.json();
 
-    // Guardamos todos los Pokémon de este tipo
+    // Guardamos todos los Pokémon de esta clase
     const allPokemonOfType = data.pokemon;
     
     // Calculamos la paginación
@@ -59,7 +59,7 @@ async function loadByType(type) {
     const end = start + itemsPerPage;
     const slice = allPokemonOfType.slice(start, end);
 
-    // Fetching details of the Pokémon on the current page
+    // Obteniendo los detalles de los Pokémon en la página actual
     const promises = slice.map(p => fetch(p.pokemon.url).then(r => r.json()));
     const results = await Promise.all(promises);
 
@@ -88,7 +88,7 @@ function renderPaginationControlsType(allPokemonOfType) {
   prevBtn.disabled = currentPageType === 1;
   prevBtn.addEventListener('click', () => {
     currentPageType--;
-    loadByType(currentType);  // Recargamos el tipo actual
+    loadByType(currentType);  // Recargamos la clase actual
   });
 
   const nextBtn = document.createElement('button');
@@ -96,7 +96,7 @@ function renderPaginationControlsType(allPokemonOfType) {
   nextBtn.disabled = currentPageType === totalPages;
   nextBtn.addEventListener('click', () => {
     currentPageType++;
-    loadByType(currentType);  // Recargamos el tipo actual
+    loadByType(currentType);  // Recargamos la clase actual
   });
 
   container.appendChild(prevBtn);
@@ -215,14 +215,14 @@ backBtn.addEventListener('click', () => {
   window.scrollTo({ top: previousScrollPosition, behavior: 'auto' });
 });
 
-// ✅ Agregamos eventos a los botones manuales
+// Eventos de los botones manuales
 document.querySelectorAll('.type-btn').forEach(btn => {
   const type = btn.dataset.type;
   if (type) {
     btn.addEventListener('click', () => {
       currentType = type;  // Guardamos el tipo seleccionado
-      currentPageType = 1; // Volvemos a la página 1 cada vez que cambiamos de tipo
-      loadByType(type);  // Cargamos los Pokémon por el nuevo tipo seleccionado
+      currentPageType = 1; // Volvemos a la página 1 cada vez que cambiamos de clase
+      loadByType(type);  // Cargamos los Pokémon por la nueva clase seleccionada
     });
   } else if (btn.id === 'allBtn') {
     btn.addEventListener('click', () => {
