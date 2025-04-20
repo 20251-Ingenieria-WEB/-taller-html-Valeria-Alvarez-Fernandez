@@ -49,9 +49,9 @@ Este proyecto es una mini aplicación web que consume la [PokéAPI](https://poke
 ## 🧠 Detalles técnicos destacados
 
 - El diseño inicial muestra solo los botones de tipo.
-- Las tarjetas de Pokémon se muestran dinámicamente según el tipo elegido o al hacer clic en "Todos".
+- Las tarjetas de Pokémon se muestran dinámicamente según la clase elegida o al hacer clic en "Todos".
 - Se utiliza `fetch()` para obtener datos de la PokéAPI.
-- El sistema de paginación está implementado tanto para la vista "Todos" como para la vista por tipo.
+- El sistema de paginación está implementado tanto para la vista "Todos" como para la vista por clase.
 - El buscador interpreta entradas por nombre o número.
 - Se conserva la posición del scroll al ver detalles y volver atrás.
 
